@@ -1,0 +1,27 @@
+<div class="container">
+    <form #bookForm="ngForm" class="form-group">
+        <div>
+            <h2 class="text-center">Add Books</h2>
+            <input type="text" placeholder="Title here" class="form-control" name="title" [(ngModel)]="newTitle" />
+            <input type = "text" placeholder="Auther here" class="form-control mt-3" name="author" [(ngModel)]="newAuthor"/>
+            <button (click)="addBook()" class="btn btn-success form-control mt-3">Add Book</button>
+        </div>
+
+        <h2 class="text-center">All Books</h2>
+        <table class="table m-3">
+            <tr>
+                <th>S.No.</th>
+                <th>Book Title</th>
+                <th>Book Author</th>
+            </tr>
+            <tr *ngFor="let book of books; index as i">
+                <th>{{i+1}}: </th>
+                <td>{{book.title}}</td>
+                <td>{{book.author}}</td>
+                <td>
+                    <button (click)="deleteBook(i)" class="btn btn-danger">Delete</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
